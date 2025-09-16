@@ -7,8 +7,7 @@ namespace ONFQ.ONFQ.Interfaces;
 
 public interface IQueryFinder<T> where T : notnull
 {
-    T? FindBestMatch(T query, float threshold = 0.75f);
-    IEnumerable<(T Item, float Score)> FindSimilarMatches(T query, float threshold = 0.75f);
-
+    T? FindBestMatch(T query);
+    Dictionary<T, float> FindSimilarMatches(T query);
     void Build(IEnumerable<T> items);
 }

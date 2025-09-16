@@ -9,7 +9,7 @@ using ONFQ.ONFQ.Utilities;
 
 namespace ONFQ.ONFQ.Core;
 
-public class SpectrumFinder<T> where T : notnull
+public class SpectrumFinder<T> : IQueryFinder<T> where T : notnull
 {
     private readonly Spectrum<T> spectrum;
     private readonly float threshold;
@@ -105,7 +105,6 @@ public class SpectrumFinder<T> where T : notnull
         return bestMatch;
     }
     */
-
     public T? FindBestMatch(T query)
     {
         ReadOnlySpan<float> queryVector = GetVector(query);
